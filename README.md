@@ -22,9 +22,9 @@ Run the server.
 ionic serve
 ```
 
-A browser should be opened automatically.
+A browser should be opened automatically. If you see a version number of web3.js everthing works fine.
 
 ## Docs
 
-[Ionic Documentation](https://ionicframework.com/docs/)
-[Web3.js Documentation](https://web3js.readthedocs.io)
+* [Ionic Documentation](https://ionicframework.com/docs/)
+* [Web3.js Documentation](https://web3js.readthedocs.io)
