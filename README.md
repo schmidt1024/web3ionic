@@ -23,3 +23,8 @@ ionic serve
 ```
 
 A browser should be opened automatically.
+
+## Docs
+
+[Ionic Documentation](https://ionicframework.com/docs/)
+[Web3.js Documentation](https://web3js.readthedocs.io)
