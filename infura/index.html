@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Infura Ethereum Explorer</title>
+  <script src="web3.min.js"></script>
+  <script>
+    // new web3
+    web3 = new Web3(new Web3.providers.HttpProvider("https://mainnet.infura.io/1GQbVif1gU8ny72LoUSc"));
+    console.log('web3:', web3);
+
+    // get latest block
+    web3.eth.getBlockNumber().then(value => {
+      console.log('block number 1', value);
+      document.getElementById("blockNumberOutput").innerHTML = value;
+    });
+
+    // get balance
+    function printAccountBalance() {
+      var GET = {};
+      var query = window.location.search.substring(1).split("&");
+      for (var i = 0, max = query.length; i < max; i++)
+      {
+        if (query[i] === "")
+          continue;
+        var param = query[i].split("=");
+        GET[decodeURIComponent(param[0])] = decodeURIComponent(param[1] || "");
+      }
+      var account = GET.account;
+
+      // var balance = web3.eth.getBalance(account);
+      web3.eth.getBalance(account).then(value => {
+        // console.log('balance', web3.utils.fromWei(value, 'ether'));
+        var balance = web3.utils.fromWei(value, 'ether');
+        document.getElementById("balanceOutput").innerHTML = balance + " ETH <br>";
+      });
+
+      // console.log('balance:', balance);
+
+      // document.write("[" + account + "]<br><br>");
+      // document.write(balance + "Ether");
+      // document.getElementById("balanceOutput").innerHTML = balance + "Ether";
+    }
+  </script>
+</head>
+<body>
+  <h1>Infura Ethereum Explorer</h1>
+  <form action="index.html" method="GET">
+    <p>
+      <label>Enter an account:</label>
+      <input type="text" size="50" name="account">
+    </p>
+    <p>
+      <input type="submit">
+    </p>
+  </form>
+  <p>
+    Latest Block: <span id="blockNumberOutput"></span>
+  </p>
+  <p>
+    Account Balance: <span id="balanceOutput"></span>
+    <script>printAccountBalance();</script>
+  </p>
+</body>
+</html>
+
