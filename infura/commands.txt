@@ -1,5 +1,0 @@
-# open terminal
-
-curl -X POST --data '{"jsonrpc":"2.0","method":"web3_clientVersion","params":[],"id":1}' https://mainnet.infura.io/1GQbVif1gU8ny72LoUSc 
-
-curl -X POST --data '{"jsonrpc":"2.0","method":"eth_blockNumber","params":[],"id":1}' https://mainnet.infura.io/1GQbVif1gU8ny72LoUSc 
